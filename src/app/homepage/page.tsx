@@ -21,15 +21,11 @@ export default function ArtStoreHomePage() {
               </Link>
             </li>
             <li>
-              <Link href={ROUTES.LOGIN} className="hover:text-cyan-300">
-                Login
+              <Link href="/logout" className="hover:text-cyan-300">
+                Logout
               </Link>
             </li>
-            <li>
-              <Link href={ROUTES.SIGNUP} className="hover:text-cyan-300">
-                Signup
-              </Link>
-            </li>
+            
           </ul>
         </nav>
       </header>
