@@ -41,7 +41,7 @@ export default function LoginPage() {
     <main className="min-h-screen flex items-center justify-center bg-gradient-to-b from-cyan-300 to-blue-950 px-4 py-10">
       <div className="w-full max-w-md bg-white/70 p-8 rounded-3xl shadow-xl">
         <h1 className="text-3xl text-center font-bold text-blue-950 mb-6">
-          {loading ? "Processing..." : "Login"}
+          Login
         </h1>
 
         <input
@@ -52,13 +52,26 @@ export default function LoginPage() {
           onChange={(e) => setUser({ ...user, email: e.target.value })}
         />
 
+         <div className="w-full flex justify-end">
+  <Link
+    href="/forgot-password"
+    className="text-blue-950 underline font-bold mb-0.5"
+  >
+    Forgot Your Password?
+  </Link>
+</div>
+
+          
         <input
           className="w-full p-3 mb-6 rounded-3xl  bg-blue-100 border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-950"
           type="password"
           placeholder="Password"
           value={user.password}
+          
           onChange={(e) => setUser({ ...user, password: e.target.value })}
         />
+
+
 
         <button
           onClick={onLogin}

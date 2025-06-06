@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 import User from "@/model/userModel";
 import crypto from "crypto";
 
-export const sendMail = async ({ email, emailtype, userID }: any) => {
+export const sendMail = async ({ email, emailtype, userID }: any, p0: string, resetLink: string) => {
     try {
         // Generate a random plain token for verification/reset
         const token = crypto.randomBytes(32).toString("hex");

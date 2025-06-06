@@ -1,9 +1,49 @@
+import { verify } from "crypto";
 import mongoose from "mongoose";
-
+import { type } from "os";
 const userSchema = new mongoose.Schema({
-  username: { type: String },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-});
+    username: {
+        type: String,
+        required: [true,"Please enter username"],
+        unique: true,
+    },
+    email: {
+        type: String,
+        required: [true,"Please enter email"],
+        unique: true,
+    },
+    password: {
+        type: String,
+        required: [true,"Please enter password"],
+    },
+    isVerified:{
+        type: Boolean,
+        default: false,
+    },
+    isAdmin:{
+        type: Boolean,
+        default: false,
+    },
+    forgotPasswordToken: {
+        type: String,
+    },
+    forgotPasswordTokenExpire:{
+        type: Date,
+    },
+    verifyToken: {
+        type: String,
+    },
+    verifyTokenExpire:{
+        type: Date,
+    },
+    resetPasswordToken: {
+        type: String,
+    },
+    resetPasswordTokenExpire:{
+        type: Date,
+    },
 
-export default mongoose.models.User || mongoose.model("User", userSchema);
+})
+
+const User = mongoose.models.users || mongoose.model("users", userSchema);
+export default User;
