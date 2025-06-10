@@ -54,7 +54,7 @@ export default function LoginPage() {
 
          <div className="w-full flex justify-end">
   <Link
-    href="/forgot-password"
+    href="/reset-password"
     className="text-blue-950 underline font-bold mb-0.5"
   >
     Forgot Your Password?

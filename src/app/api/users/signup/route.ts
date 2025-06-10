@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
 
        console.log(reqbody);
 
-       //Check if user already exists
+       
 
        const user= await User.findOne({email})
 
@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
            return NextResponse.json({error:"Email already exists"},{status:400})
        }
 
-       //hash password
+     
        const salt = await bcryptjs.genSalt(10);
        const hashedPassword = await bcryptjs.hash(password, salt);
 
@@ -38,8 +38,8 @@ export async function POST(request: NextRequest) {
        const savedUser = await newUser.save()
        console.log(savedUser);
 
-       //send verification email
-       const token = await sendMail({email,emailtype:"VERIFY",userID:savedUser._id})
+       
+       const token = await sendMail(email, "VERIFY", savedUser._id)
 
        return NextResponse.json({message:"User created successfully"},{status:201})
 
