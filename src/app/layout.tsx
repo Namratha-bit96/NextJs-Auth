@@ -26,6 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+     
       <body>
         <Toaster position="top-center" reverseOrder={false} />
         {children}

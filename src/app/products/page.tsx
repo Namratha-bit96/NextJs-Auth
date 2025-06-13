@@ -40,7 +40,7 @@ const cards = [
 
 export default function ProductsPage() {
   return (
-  <main className="py-10 px-6 bg-gradient-to-b from-cyan-300 to-blue-950 min-h-screen">
+  <main className="flex flex-col bg-slate-950 min-h-screen rounded-1xl p-4">
         <FocusCards cards={cards} />
       </main>
   );

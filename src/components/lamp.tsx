@@ -2,10 +2,13 @@
 import React from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import { ROUTES } from "@/app/api/users/homepage/route";
+import router from "next/router";
 
 export function LampDemo() {
   return (
     <LampContainer>
+      <h5 className="text-3xl  align-middle font-Lato font-bold text-zinc-200"> Dream in Color</h5>
       <motion.h1
         initial={{ opacity: 0.5, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -14,11 +17,10 @@ export function LampDemo() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-5xl"
       >
-        Bringing imagination to life <br /> through art and a powerful expression of creativity. 
+        Bringing imagination to life <br /> through art and a powerful expression of creativity.
       </motion.h1>
-     
     </LampContainer>
   );
 }
@@ -33,7 +35,7 @@ export const LampContainer = ({
   return (
     <div
       className={cn(
-        "relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-slate-950 w-full rounded-md z-0",
+        "relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-slate-950 w-full z-0",
         className
       )}
     >
@@ -100,6 +102,7 @@ export const LampContainer = ({
       <div className="relative z-50 flex -translate-y-80 flex-col items-center px-5">
         {children}
       </div>
+      
     </div>
   );
 };
