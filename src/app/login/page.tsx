@@ -38,9 +38,9 @@ export default function LoginPage() {
   }, [user]);
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-b from-cyan-300 to-blue-950 px-4 py-10">
-      <div className="w-full max-w-md bg-white/70 p-8 rounded-3xl shadow-xl">
-        <h1 className="  text-3xl text-center font-bold text-blue-950 mb-6">
+    <main className="min-h-screen flex items-center justify-center bg-slate-950 px-4 py-10">
+      <div className="w-full max-w-md bg-cyan/70 p-8 rounded-3xl shadow-xl">
+        <h1 className="  text-3xl text-center font-bold text-white mb-6">
           Login
         </h1>
 
@@ -55,7 +55,7 @@ export default function LoginPage() {
          <div className="w-full flex justify-end">
   <Link
     href="/reset-password"
-    className="text-blue-950 underline font-bold mb-0.5"
+    className="text-white underline font-bold mb-0.5"
   >
     Forgot Your Password?
   </Link>
@@ -85,9 +85,9 @@ export default function LoginPage() {
           {buttonDisabled ? "Fill all fields" : loading ? "Processing..." : "Login"}
         </button>
 
-        <p className="mt-6 text-center text-sm text-blue-950">
+        <p className="mt-6 text-center text-sm text-white">
           Don't have an account?{" "}
-          <Link href="/signup" className="underline text-blue-950 hover:text-blue-800">
+          <Link href="/signup" className="underline text-white hover:text-cyan-400">
             Signup here
           </Link>
         </p>
