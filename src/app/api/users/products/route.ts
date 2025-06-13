@@ -1,10 +1,6 @@
-"use client";
-
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { NextResponse } from "next/server";
 import { FocusCards } from "@/components/ui/focus-cards";
-import { LampDemo } from "@/components/lamp";
-import { Card } from "@/components/ui/focus-cards";
+
 const cards = [
   {
     id: "1",
@@ -18,7 +14,7 @@ const cards = [
   },
   {
     id: "3",
-    title: "Blue Ocean",
+    title: "Sala behta hi jayega",
     src: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=3070&auto=format&fit=crop",
   },
   {
@@ -37,11 +33,8 @@ const cards = [
     src: "https://assets.aceternity.com/the-first-rule.png",
   },
 ];
-
-export default function ProductsPage() {
-  return (
-  <main className="py-10 px-6 bg-gradient-to-b from-cyan-300 to-blue-950 min-h-screen">
-        <FocusCards cards={cards} />
-      </main>
-  );
-}
+export const ROUTES = {
+  HOME: "/",
+  PRODUCTS: "/products",
+  PRODUCT_DETAIL: (id: string) => `/products/${id}`,
+};

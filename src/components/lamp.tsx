@@ -16,8 +16,9 @@ export function LampDemo() {
         }}
         className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
       >
-        Bringing imagination to life <br /> through art
+        Bringing imagination to life <br /> through art and a powerful expression of creativity. 
       </motion.h1>
+     
     </LampContainer>
   );
 }
