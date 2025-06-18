@@ -6,6 +6,8 @@ import ProductsPage from "@/app/products/page";
 const ROUTES = {
   LOGIN: "/login",
   SIGNUP: "/signup",
+  HOMEPAGE: "/homepage",
+  PRODUCTS: "/products",
 };
 import { LampDemo } from "@/components/lamp";
 import { motion } from "motion/react";
@@ -19,13 +21,13 @@ export default function ArtStoreHomePage() {
       <main > 
         <LampDemo /> 
         
-      <div className="flex flex-row space-x-4 text-center justify-center bg-slate-950 px-50 align-middle py-5">
-        <Link href="/homepage">
+      <div className="flex flex-row space-x-4 text-center font-serif font-bold justify-center bg-slate-950 px-50 align-middle py-5">
+        <Link href={ROUTES.HOMEPAGE}>
           <button className="px-2 py-3 align-middle bg-slate-950 text-white hover:bg-cyan-600 rounded-3xl transition-all">
             About Us
           </button>
         </Link>
-        <Link href="/products">
+        <Link href={ROUTES.PRODUCTS}>
           <button className="px-2 py-3 align-middle bg-slate-950 text-white hover:bg-cyan-600 rounded-3xl transition-all">
             Explore More
           </button>

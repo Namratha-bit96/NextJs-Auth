@@ -8,7 +8,7 @@ import router from "next/router";
 export function LampDemo() {
   return (
     <LampContainer>
-      <h5 className="text-3xl  align-middle font-Lato font-bold text-zinc-200"> Dream in Color</h5>
+      <h3 className="text-3xl  align-middle font-serif font-bold text-zinc-200"> Dream in Color</h3>
       <motion.h1
         initial={{ opacity: 0.5, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -17,7 +17,7 @@ export function LampDemo() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-5xl"
+        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium font-serif tracking-tight text-transparent md:text-5xl"
       >
         Bringing imagination to life <br /> through art and a powerful expression of creativity.
       </motion.h1>

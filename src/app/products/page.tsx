@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/focus-cards";
 const cards = [
   {
     id: "1",
-    title: "Forest Adventure",
+    title: "Misty Forest",
     src: "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop",
   },
   {
@@ -23,24 +23,24 @@ const cards = [
   },
   {
     id: "4",
-    title: "Camping is for pros",
+    title: "Camping",
     src: "https://images.unsplash.com/photo-1486915309851-b0cc1f8a0084?q=80&w=3387&auto=format&fit=crop",
   },
   {
     id: "5",
-    title: "The road not taken",
+    title: "Mid Forest Road",
     src: "https://images.unsplash.com/photo-1507041957456-9c397ce39c97?q=80&w=3456&auto=format&fit=crop",
   },
   {
     id: "6",
-    title: "The First Rule",
+    title: "Lonely Human",
     src: "https://assets.aceternity.com/the-first-rule.png",
   },
 ];
 
 export default function ProductsPage() {
   return (
-  <main className="flex flex-col bg-slate-950 min-h-screen rounded-1xl p-4">
+  <main className="flex flex-col bg-slate-950 font-serif min-h-screen rounded-1xl p-4">
         <FocusCards cards={cards} />
       
       </main>

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 const cards = [
   {
     id: "1",
-    title: "Forest Adventure",
+    title: "Misty Forest",
     src: "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop",
     description: "Explore the serene forest with our adventure kit.",
   },
@@ -21,19 +21,19 @@ const cards = [
   },
   {
     id: "4",
-    title: "Camping is for pros",
+    title: "Camping",
     src: "https://images.unsplash.com/photo-1486915309851-b0cc1f8a0084?q=80&w=3387&auto=format&fit=crop",
     description: "Camp like a pro with the best outdoor gear.",
   },
   {
     id: "5",
-    title: "The road not taken",
+    title: "Mid Forest Road",
     src: "https://images.unsplash.com/photo-1507041957456-9c397ce39c97?q=80&w=3456&auto=format&fit=crop",
     description: "Inspiring paths await those who explore the unknown.",
   },
   {
     id: "6",
-    title: "The First Rule",
+    title: "Lonely Human",
     src: "https://assets.aceternity.com/the-first-rule.png",
     description: "A mysterious journey into the first rule of the wild.",
   },
@@ -51,7 +51,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
         alt={product.title}
         className="w-full h-80 object-cover rounded-lg mb-6"
       />
-      <h1 className="text-4xl font-bold mb-2">{product.title}</h1>
+      <h1 className="text-4xl font-bold font-serif mb-2">{product.title}</h1>
       <p className="text-lg text-gray-700">{product.description}</p>
     </div>
   );
