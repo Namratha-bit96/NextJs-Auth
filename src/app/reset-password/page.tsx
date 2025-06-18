@@ -39,8 +39,8 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-b from-cyan-300 to-blue-950 px-4 py-10">
-      <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
+    <main className="min-h-screen flex items-center justify-center bg-slate-950 px-4 py-10">
+      <div className="w-full max-w-md bg-white/70 p-8 rounded-2xl shadow-lg">
         <h1 className="text-2xl text-blue-950 font-bold mb-4">Reset Password</h1>
 
         <input

@@ -50,13 +50,13 @@ export default function VerifyEmail() {
   };
 
   return (
-    <><div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-cyan-300 to-blue-950 px-4 py-6">
+    <><div className="flex flex-col items-center justify-center min-h-screen bg-slate-950 px-4 py-6">
           <h1 className="text-3xl font-bold mb-4"></h1>
 
-          {loading && <p className="text-blue-950 text-lg">Verifying your email...</p>}
+          {loading && <p className="text-white text-lg">Verifying your email...</p>}
 
           {verified && (
-              <div className="text-shadow-cyan-200 text-center">
+              <div className="text-white text-center">
                   <h2 className="text-xl mb-2">Your email has been successfully verified!</h2>
                   <Link href="/login" className="text-shadow-cyan-400 underline">Go to Login</Link>
               </div>

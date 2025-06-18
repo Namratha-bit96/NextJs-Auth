@@ -41,6 +41,7 @@ const cards = [
 export default function ProductsPage() {
   return (
   <main className="flex flex-col bg-slate-950 font-serif min-h-screen rounded-1xl p-4">
+  
         <FocusCards cards={cards} />
       
       </main>

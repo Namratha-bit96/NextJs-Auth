@@ -45,6 +45,7 @@ export default function ArtStoreHomePage() {
       </div>
       <ProductsPage/> 
       </main>
+      <footer className="bg-slate-950 text-white  text-center py-4">@2025 Dream in Color</footer>
     </>
   );
 }
