@@ -1,5 +1,12 @@
 import { notFound } from "next/navigation";
 
+
+type ProductDetailPageProps = {
+  params: {
+    id: string;
+  };
+};
+
 const cards = [
   {
     id: "1",
@@ -39,19 +46,13 @@ const cards = [
   },
 ];
 
-
-export  function generateStaticParams() {
+export function generateStaticParams() {
   return cards.map((card) => ({
     id: card.id,
   }));
 }
 
-
-export default function ProductDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   const product = cards.find((p) => p.id === params.id);
 
   if (!product) return notFound();
@@ -68,6 +69,7 @@ export default function ProductDetailPage({
     </div>
   );
 }
+
 
 
 
