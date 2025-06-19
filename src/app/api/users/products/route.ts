@@ -1,5 +1,3 @@
-import { NextResponse } from "next/server";
-import { FocusCards } from "@/components/ui/focus-cards";
 
 const cards = [
   {

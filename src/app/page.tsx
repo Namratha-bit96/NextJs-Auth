@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { FocusCards } from "@/components/ui/focus-cards";
 import ProductsPage from "@/app/products/page";
 const ROUTES = {
   LOGIN: "/login",
@@ -10,7 +9,6 @@ const ROUTES = {
   PRODUCTS: "/products",
 };
 import { LampDemo } from "@/components/lamp";
-import { motion } from "motion/react";
 import React from "react";
 
 

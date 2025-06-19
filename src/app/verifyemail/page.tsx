@@ -4,7 +4,6 @@ import { LampDemo } from "@/components/lamp";
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { motion } from "motion/react";
 
 export default function VerifyEmail() {
   const [token, setToken] = useState("");

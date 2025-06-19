@@ -1,10 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { FocusCards } from "@/components/ui/focus-cards";
-import { LampDemo } from "@/components/lamp";
-import { Card } from "@/components/ui/focus-cards";
 const cards = [
   {
     id: "1",
