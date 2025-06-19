@@ -47,13 +47,11 @@ export async function generateStaticParams() {
 }
 
 
-interface ProductDetailPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function ProductDetailPage({ params }: ProductDetailPageProps) {
+export default function ProductDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const product = cards.find((p) => p.id === params.id);
 
   if (!product) return notFound();
