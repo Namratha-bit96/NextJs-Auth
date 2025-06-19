@@ -20,12 +20,12 @@ export default function ArtStoreHomePage() {
         <LampDemo /> 
         
       <div className="flex flex-row space-x-4 text-center font-serif font-bold justify-center bg-slate-950 px-50 align-middle py-5">
-        <Link href={ROUTES.HOMEPAGE}>
+        <Link href="/homepage">
           <button className="px-2 py-3 align-middle bg-slate-950 text-white hover:bg-cyan-600 rounded-3xl transition-all">
             About Us
           </button>
         </Link>
-        <Link href={ROUTES.PRODUCTS}>
+        <Link href="/products">
           <button className="px-2 py-3 align-middle bg-slate-950 text-white hover:bg-cyan-600 rounded-3xl transition-all">
             Explore More
           </button>
