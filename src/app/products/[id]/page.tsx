@@ -46,11 +46,14 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProductDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+
+interface ProductDetailPageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   const product = cards.find((p) => p.id === params.id);
 
   if (!product) return notFound();
