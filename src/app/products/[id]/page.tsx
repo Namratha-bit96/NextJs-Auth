@@ -39,6 +39,13 @@ const cards = [
   },
 ];
 
+
+export function generateStaticParams() {
+  return cards.map((card) => ({
+    id: card.id,
+  }));
+}
+
 export default function ProductDetailPage({
   params,
 }: {
@@ -60,4 +67,5 @@ export default function ProductDetailPage({
     </div>
   );
 }
+
 
