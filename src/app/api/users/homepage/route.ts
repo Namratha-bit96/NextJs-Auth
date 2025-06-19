@@ -1,13 +1,6 @@
-// src/constants/routes.ts
 
-export const ROUTES = {
+import { NextResponse } from "next/server";
 
-  HOMEPAGE: "/homepage",
-  SHOP: "/shop",
-  SIGNUP: "/signup",
-  LOGIN: "/login",
-  PROFILE: "/profile",
-  CART: "/cart",
-  CHECKOUT: "/checkout",
-  // Add more as needed
-};
+export async function GET() {
+  return NextResponse.json({ message: "Homepage API" });
+}
