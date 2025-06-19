@@ -40,7 +40,7 @@ const cards = [
 ];
 
 
-export async function generateStaticParams() {
+export  function generateStaticParams() {
   return cards.map((card) => ({
     id: card.id,
   }));
