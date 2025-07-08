@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: art-store-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:-your-secure-password}
+      MONGO_INITDB_DATABASE: users
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - art-store-network
+    # Don't expose MongoDB port externally in production
+    # ports:
+    #   - "27017:27017"
+
+  # Next.js Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: art-store-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=${MONGO_URI}
+      - TOKEN_SECRET=${TOKEN_SECRET}
+      - NEXT_TELEMETRY_DISABLED=1
+    depends_on:
+      - mongodb
+    networks:
+      - art-store-network
+    volumes:
+      - ./public:/app/public:ro
+
+  # Nginx Reverse Proxy (Optional)
+  nginx:
+    image: nginx:alpine
+    container_name: art-store-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro  # If using SSL
+    depends_on:
+      - app
+    networks:
+      - art-store-network
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  art-store-network:
+    driver: bridge 

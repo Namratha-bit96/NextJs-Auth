@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: art-store-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: users
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - art-store-network
+
+  # Next.js Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: art-store-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://admin:password123@mongodb:27017/users?authSource=admin
+      - TOKEN_SECRET=your-super-secret-jwt-token-key-change-this-in-production
+      - NEXT_TELEMETRY_DISABLED=1
+    depends_on:
+      - mongodb
+    networks:
+      - art-store-network
+    volumes:
+      - ./public:/app/public:ro
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  art-store-network:
+    driver: bridge 
