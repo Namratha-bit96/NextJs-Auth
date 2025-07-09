@@ -17,7 +17,7 @@ export default function ArtStoreHomePage() {
   <br />
   Our platform is dedicated to showcasing a diverse collection of artworks, from serene landscapes and abstract expressions to bold modern pieces, all carefully curated for art lovers and collectors alike.
   <br />
-  At the heart of our mission is the desire to support emerging artists by providing them with a platform to share their vision with the world. Whether you're looking to decorate your home, gift a masterpiece, or simply get inspired, our store offers a seamless experience to explore and purchase authentic artwork. Join us in celebrating creativity — one brushstroke at a time.
+  At the heart of our mission is the desire to support emerging artists by providing them with a platform to share their vision with the world. Whether you&apos;re looking to decorate your home, gift a masterpiece, or simply get inspired, our store offers a seamless experience to explore and purchase authentic artwork. Join us in celebrating creativity — one brushstroke at a time.
 </p>
         </div>
       </main>

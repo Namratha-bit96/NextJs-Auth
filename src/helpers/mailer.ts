@@ -1,6 +1,13 @@
 import nodemailer from "nodemailer";
 import crypto from "crypto";
-import User from "@/model/userModel";
+
+interface UserType {
+  verifyToken?: string;
+  verifyTokenExpire?: number;
+  forgotPasswordToken?: string;
+  forgotPasswordTokenExpire?: number;
+  save: () => Promise<void>;
+}
 
 export const sendMail = async ({
   email,
@@ -9,7 +16,7 @@ export const sendMail = async ({
 }: {
   email: string;
   emailtype: "VERIFY" | "RESET";
-  user: any;
+  user: UserType;
 }) => {
   try {
     if (!user) {
@@ -55,8 +62,12 @@ export const sendMail = async ({
     const mailResponse = await transport.sendMail(mailOptions);
     return mailResponse;
 
-  } catch (error: any) {
-    console.error("Error in sendMail function:", error);
-    throw new Error(error.message);
+  } catch (error: unknown) {
+    let message = 'Unknown error';
+    if (error instanceof Error) {
+      message = error.message;
+    }
+    console.error("Error in sendMail function:", message);
+    throw new Error(message);
   }
 };

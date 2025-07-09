@@ -1,6 +1,6 @@
 "use client";
 
-import { FocusCards } from "@/components/ui/focus-cards";
+import { FocusCards } from "../../components/ui/focus-cards";
 const cards = [
   {
     id: "1",

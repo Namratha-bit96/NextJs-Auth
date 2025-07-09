@@ -1,8 +1,8 @@
-import { connect } from "@/dbConfig/dbConfig";
-import User from "@/model/userModel";
+import { connect } from "../../../../dbConfig/dbConfig";
+import User from "../../../../model/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
-import { sendMail } from "@/helpers/mailer";
+import { sendMail } from "../../../../helpers/mailer";
 
 
 connect();
@@ -43,8 +43,12 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ message: "User created successfully" }, { status: 201 });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
+    let message = 'Unknown error';
+    if (error instanceof Error) {
+      message = error.message;
+    }
     console.error("Signup error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

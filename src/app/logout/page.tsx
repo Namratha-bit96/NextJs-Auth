@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { LampDemo } from "@/components/lamp";
+import { LampDemo } from "../../components/lamp";
 
 export default function LogoutPage() {
   const router = useRouter();
@@ -15,7 +15,7 @@ export default function LogoutPage() {
       
         await axios.get("/api/users/logout"); 
         toast.success("Logout successful!");
-      } catch (error: any) {
+      } catch (error: unknown) {
         toast.error("Logout failed!");
         console.error(error);
       } finally {

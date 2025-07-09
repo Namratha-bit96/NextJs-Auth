@@ -31,9 +31,12 @@ export default function ResetPasswordPage() {
       } else {
         toast.error(res.data.error || "Something went wrong");
       }
-    } catch (error: any) {
-      toast.error(error.response?.data?.error || "Reset failed");
-    } finally {
+    } catch (error: unknown) {
+      let message = 'Unknown error';
+      if (error instanceof Error) {
+        message = error.message;
+      }
+      toast.error(message);
       setLoading(false);
     }
   };

@@ -6,12 +6,16 @@ export async function getDataFromToken(request: NextRequest) {
     try {
 
         const token= request.cookies.get("token")?.value || "";
-        const decodedToken: any= jwt.verify(token,process.env.TOKEN_SECRET!);
-        return decodedToken.id;
-        
-        
-    } catch (error:any) {
-        throw new Error(error.message);
-        
+        const decodedToken = jwt.verify(token,process.env.TOKEN_SECRET!);
+        if (typeof decodedToken === 'object' && decodedToken !== null && 'id' in decodedToken) {
+            return (decodedToken as { id: string }).id;
+        }
+        throw new Error('Invalid token');
+    } catch (error: unknown) {
+        let message = 'Unknown error';
+        if (error instanceof Error) {
+            message = error.message;
+        }
+        throw new Error(message);
     }
 }

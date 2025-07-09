@@ -19,12 +19,16 @@ export default function LoginPage() {
   const onLogin = async () => {
     try {
       setLoading(true);
-      const response = await axios.post("/api/users/login", user);
+      await axios.post("/api/users/login", user);
       toast.success("Login successful!");
       router.push("/products");
-    } catch (error: any) {
-      console.error("Login failed:", error.message);
-      toast.error(error.message || "Login failed");
+    } catch (error: unknown) {
+      let message = 'Unknown error';
+      if (error instanceof Error) {
+        message = error.message;
+      }
+      console.error("Login failed:", message);
+      toast.error(message || "Login failed");
     } finally {
       setLoading(false);
     }
@@ -84,7 +88,7 @@ export default function LoginPage() {
         </button>
 
         <p className="mt-6 text-center text-sm text-white">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link href="/signup" className="underline text-white hover:text-cyan-400">
             Signup here
           </Link>

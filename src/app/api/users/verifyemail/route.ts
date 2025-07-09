@@ -1,5 +1,5 @@
-import { connect } from "@/dbConfig/dbConfig";
-import User from "@/model/userModel";
+import { connect } from "../../../../dbConfig/dbConfig";
+import User from "../../../../model/userModel";
 import { NextRequest, NextResponse } from "next/server";
 
 // Ensure DB is connected
@@ -39,8 +39,11 @@ export async function POST(req: NextRequest) {
 
     console.log("User verified successfully");
     return NextResponse.json({ message: "Email verified successfully", success: true });
-  } catch (error: any) {
-    console.error("Verification error:", error.message);
-    return NextResponse.json({ error: "Something went wrong during verification" }, { status: 500 });
+  } catch (error: unknown) {
+    let message = 'Unknown error';
+    if (error instanceof Error) {
+      message = error.message;
+    }
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

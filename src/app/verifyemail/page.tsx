@@ -1,9 +1,9 @@
 "use client";
 
-import { LampDemo } from "@/components/lamp";
+import { LampDemo } from "../../components/lamp";
 import axios from "axios";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 export default function VerifyEmail() {
   const [token, setToken] = useState("");
@@ -11,26 +11,7 @@ export default function VerifyEmail() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
- useEffect(() => {
-  const params = new URLSearchParams(window.location.search);
-  const urlToken = params.get("token");
-
-  if (urlToken) {
-    setToken(urlToken);
-  } else {
-    setLoading(false);  
-    setError(true);     
-  }
-}, []);
-
-
-  useEffect(() => {
-    if (token) {
-      verifyUserEmail();
-    }
-  }, [token]);
-
-  const verifyUserEmail = async () => {
+  const verifyUserEmail = useCallback(async () => {
     try {
       setLoading(true);
       const res = await axios.post("/api/users/verifyemail", { token });
@@ -40,13 +21,35 @@ export default function VerifyEmail() {
       } else {
         setError(true);
       }
-    } catch (error: any) {
-      console.error("Verification failed:", error.response?.data || error.message);
+    } catch (error: unknown) {
+      let message = 'Unknown error';
+      if (error instanceof Error) {
+        message = error.message;
+      }
+      console.error("Verification failed:", message);
       setError(true);
     } finally {
       setLoading(false);
     }
-  };
+  }, [token]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const urlToken = params.get("token");
+
+    if (urlToken) {
+      setToken(urlToken);
+    } else {
+      setLoading(false);  
+      setError(true);     
+    }
+  }, []);
+
+  useEffect(() => {
+    if (token) {
+      verifyUserEmail();
+    }
+  }, [token, verifyUserEmail]);
 
   return (
     <><div className="flex flex-col items-center justify-center min-h-screen bg-slate-950 px-4 py-6">

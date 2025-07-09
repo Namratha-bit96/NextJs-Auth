@@ -1,5 +1,5 @@
-import {connect} from "@/dbConfig/dbConfig";
-import User from "@/model/userModel";
+import {connect} from "../../../../dbConfig/dbConfig";
+import User from "../../../../model/userModel";
 import {NextRequest, NextResponse} from "next/server";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -53,9 +53,12 @@ export async function POST(request: NextRequest) {
         })
         return response;
         
-    } catch (error:any) {
-        return NextResponse.json({error:error.message},{status:500})
-        
+    } catch (error: unknown) {
+        let message = 'Unknown error';
+        if (error instanceof Error) {
+            message = error.message;
+        }
+        return NextResponse.json({error: message},{status:500})
     }
 
 }

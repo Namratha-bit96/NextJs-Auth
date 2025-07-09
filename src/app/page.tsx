@@ -1,15 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import ProductsPage from "@/app/products/page";
+import { LampDemo } from "../components/lamp";
 const ROUTES = {
   LOGIN: "/login",
   SIGNUP: "/signup",
   HOMEPAGE: "/homepage",
   PRODUCTS: "/products",
 };
-import { LampDemo } from "@/components/lamp";
 import React from "react";
+
 
 
 export default function ArtStoreHomePage() {
@@ -41,7 +41,7 @@ export default function ArtStoreHomePage() {
           </button>
         </Link>
       </div>
-      <ProductsPage/> 
+      
       </main>
       <footer className="bg-slate-950 text-white  text-center py-4">@2025 Dream in Color</footer>
     </>

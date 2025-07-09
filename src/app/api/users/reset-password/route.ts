@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import User from "@/model/userModel";
+import User from "../../../../model/userModel";
 import bcryptjs from "bcryptjs";
 
 export async function POST(req: NextRequest) {
@@ -19,8 +19,12 @@ export async function POST(req: NextRequest) {
       message: "Password updated successfully",
       success: true,
     });
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    let message = 'Unknown error';
+    if (error instanceof Error) {
+      message = error.message;
+    }
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
 
